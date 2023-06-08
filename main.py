@@ -20,17 +20,13 @@ def get_host_and_user():
     return f"{getuser()}@{platform.node()}"
 
 def get_memoryinfo():
-    # Get the memory usage information
     memory = psutil.virtual_memory()
 
-    # Convert memory values to gigabytes (GB)
     used_memory_gb = memory.used / (1024 ** 3)
     total_memory_gb = memory.total / (1024 ** 3)
 
-    # Calculate the memory usage percentage
     memory_usage_percent = (used_memory_gb / total_memory_gb) * 100
 
-    # Format the memory information
     memory_info_formatted = f"{used_memory_gb:.2f}/{total_memory_gb:.2f}GB • {memory_usage_percent:.2f}%"
 
     return memory_info_formatted
